@@ -7,7 +7,8 @@
     "create-wasm-app": ".bin/lift-wasm-app.js"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --config webpack.dev.js",
+    "dist": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server"
   },
   "keywords": [
