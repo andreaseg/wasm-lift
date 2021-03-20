@@ -1,0 +1,12 @@
+[package]
+name = "lift"
+version = "0.1.0"
+authors = ["Andreas Grønlien <andreas@gronlien.no>"]
+edition = "2018"
+
+[dependencies]
+micromath = "1.1.0"
+
+[profile.release]
+opt-level = "s"
+lto = true

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The WASM Elevator</title>
+    <style>
+
+      html {
+        background-color: slategray;
+      }
+
+      h1 {
+        color: white;
+        padding: 5px;
+        background: repeating-linear-gradient(
+          45deg,
+          #8d8405,
+          #8d8405 50px,
+          #180b02 50px,
+          #180b02 100px
+        );
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: none;
+        background-color: gray;
+        max-width: 400px;
+        padding: 0;
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+        margin: auto;
+        margin-top: 50px;
+      }
+
+      #lift-canvas {
+        background-color: whitesmoke;
+        border: 1px solid black;
+        margin: 10px;
+        vertical-align: text-top;
+      }
+
+      .control-panel {
+        display: inline-block;
+        position: relative;
+        padding: 20px;
+        width: 240px;
+        overflow-y: auto;
+        vertical-align: text-top;
+      }
+
+      .control-panel span, button {
+        float: left;
+      }
+
+      .control-panel button {
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+        font-family: monospace;
+      }
+
+      .active-floor-button {
+        border-color: orangered;
+        color: orangered;
+      }
+
+      button {
+        border-color: black;
+        background-color: darkgray;
+        color: white;
+      }
+
+      .floor-button-timer {
+        display: inline-block;
+        width: 3em;
+        margin: 5px;
+        font-family: monospace;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
+    <script src="./bootstrap.js"></script>
+
+    <h1>The WASM Elevator</h1>
+    <canvas id="lift-canvas" width="40", height="360"></canvas>
+    <span class="control-panel">
+      <span>
+        <button class="floor-button" value="9">10</button>
+        <span class="floor-button-timer" id="floor-button-timer-9"></span>
+      </span>
+      <span>
+        <button class="floor-button" value="10">11</button>
+        <span class="floor-button-timer" id="floor-button-timer-10"></span>
+      </span>
+      <span>
+        <button class="floor-button" value="7">8</button>
+        <span class="floor-button-timer" id="floor-button-timer-7"></span>
+      </span>
+      <span>
+        <button class="floor-button" value="8">9</button>
+        <span class="floor-button-timer" id="floor-button-timer-8"></span>
+      </span>
+      <span>
+        <button class="floor-button" value="5">6</button>
+        <span class="floor-button-timer" id="floor-button-timer-5"></span>
+      </span>
+      <span>
+        <button class="floor-button" value="6">7</button>
+        <span class="floor-button-timer" id="floor-button-timer-6"></span>
+      </span>
+      <span>
+        <button class="floor-button" value="3">4</button>
+        <span class="floor-button-timer" id="floor-button-timer-3"></span>
+      </span>
+      <span>
+        <button class="floor-button" value="4">5</button>
+        <span class="floor-button-timer" id="floor-button-timer-4"></span>
+      </span>
+      <span>
+        <button class="floor-button" value="1">2</button>
+        <span class="floor-button-timer" id="floor-button-timer-1"></span>
+      </span>
+      <span>
+        <button class="floor-button" value="2">3</button>
+        <span class="floor-button-timer" id="floor-button-timer-2"></span>
+      </span>
+      <span>
+        <button class="floor-button" value="0">1</button>
+        <span class="floor-button-timer" id="floor-button-timer-0"></span>
+      </span>
+      <span>
+        <button class="floor-button" value="-1">U1</button>
+        <span class="floor-button-timer" id="floor-button-timer--1"></span>
+      </span>
+      <span>
+        <button class="floor-button" value="-2">U2</button>
+        <span class="floor-button-timer" id="floor-button-timer--2"></span>
+      </span>
+      
+      
+      <button id="emergency-stop-button">STOP</button>
+    </span>
+    
+
+  </body>
+</html>
