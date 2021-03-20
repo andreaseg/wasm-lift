@@ -6,5 +6,6 @@ cmd /c "npm run dist"
 cd dist
 for /r %%i in (*.wasm) do (
     echo "%%i"
-    rem wasm-opt %%i -Oz
+    wasm-opt -Oz -o tmp %%i
+    MOVE /Y tmp %%i
 )

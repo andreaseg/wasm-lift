@@ -4,7 +4,7 @@ cargo build --release
 cd ..
 
 cd lift_wasm
-wasm-pack build
+wasm-pack build --release
 cd ..
 
 cd www
